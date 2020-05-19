@@ -1,0 +1,62 @@
+import RPi.GPIO as GPIO
+import time
+
+import tkinter as tk 
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(23,GPIO.OUT)
+GPIO.setup(17,GPIO.OUT)
+GPIO.setup(26,GPIO.OUT)
+
+pressed = True
+pressed1 = True
+pressed2 = True
+
+def lightButton():
+    global pressed
+    if pressed == True:
+        GPIO.output(23, GPIO.HIGH) 
+        pressed = False
+     
+    else:
+        GPIO.output(23, GPIO.LOW) 
+        pressed = True
+
+def lightButton1():
+    global pressed1
+    if pressed1 == True:
+        GPIO.output(17, GPIO.HIGH) 
+        pressed1 = False
+     
+    else:
+        GPIO.output(17, GPIO.LOW) 
+        pressed1 = True
+        
+def T():
+    global pressed2
+    if pressed2 == True:
+        GPIO.output(26, GPIO.HIGH) 
+        pressed2 = False
+        print("worked")
+     
+    else:
+        GPIO.output(26, GPIO.LOW) 
+        pressed2 = True
+        print("worked1")
+                
+master = tk.Tk()
+master.title("GPIO Control")
+master.geometry("300x300")
+
+button = tk.Button(master, text="Blue", bg="blue", command=lightButton)
+button.grid(row=0, column=0)
+
+button1 = tk.Button(master, text="red", bg="red", command=lightButton1)
+button1.grid(row=1, column=0)
+
+button2 = tk.Button(master, text="green", bg="green", command=T)
+button2.grid(row=2, column=0)
+
+
+
+
