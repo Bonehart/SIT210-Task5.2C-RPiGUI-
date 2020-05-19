@@ -44,17 +44,16 @@ def T():
         pressed2 = True
         print("worked1")
                 
-master = tk.Tk()
-master.title("GPIO Control")
-master.geometry("300x300")
+window = tk.Tk()
+window.geometry("300x300")
 
-button = tk.Button(master, text="Blue", bg="blue", command=lightButton)
+button = tk.Button(window, text="Blue", bg="blue", command=lightButton)
 button.grid(row=0, column=0)
 
-button1 = tk.Button(master, text="red", bg="red", command=lightButton1)
+button1 = tk.Button(window, text="red", bg="red", command=lightButton1)
 button1.grid(row=1, column=0)
 
-button2 = tk.Button(master, text="green", bg="green", command=T)
+button2 = tk.Button(window, text="green", bg="green", command=T)
 button2.grid(row=2, column=0)
 
 
